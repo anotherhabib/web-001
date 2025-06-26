@@ -13,7 +13,7 @@ const config = {
         { url: 'assets/images/foto6.jpg', description: 'Brakseng Batu, Malang', date: '24 May 2025' },
         { url: 'assets/images/foto7.jpg', description: 'Kuliner Jember', date: '10 Jun 2025' },
         { url: 'assets/images/foto8.jpg', description: 'Teluk Love, Jember', date: '11 Jun 2025' },
-        //{ url: 'assets/images/foto9.jpg', description: 'Teluk Love, Jember', date: '11 Jun 2025' }
+        { url: 'assets/images/foto9.jpg', description: 'Teluk Love, Jember', date: '11 Jun 2025' }
     ],
     
     // Isi surat cinta
