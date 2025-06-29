@@ -2,128 +2,211 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Risda Habib</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Risda Habib</title>
 
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💕</text></svg>">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>💕</text></svg>">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
-    
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-    <div id="splash-screen" class="splash-screen">
-        <div class="splash-content">
-            <div class="splash-icon">💌</div>
-            <h1 id="splash-title">Hai, Ada Pesan Spesial Untukmu</h1>
-            <p id="splash-subtitle">Dari seseorang yang menyayangimu</p>
-            <button id="open-surprise-btn" class="splash-button">Klik untuk Buka</button>
-        </div>
-    </div>
+    <div id="splash-screen" class="splash-screen">
+        <div class="splash-content">
+            <div class="splash-icon">💌</div>
+            <h1 id="splash-title">Hai, Ada Pesan Spesial Untukmu</h1>
+            <p id="splash-subtitle">Dari seseorang yang menyayangimu</p>
+            <button id="open-surprise-btn" class="splash-button">Klik untuk Buka</button>
+        </div>
+    </div>
 
-    <div id="app-content" class="app-content">
-        <audio id="background-music" loop></audio>
+    <div id="app-content" class="app-content">
+        <audio id="background-music" loop></audio>
 
-        <button id="music-toggle-btn" class="music-control">
-            <svg id="music-icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-            <svg id="music-icon-pause" viewBox="0 0 24 24" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
-            <span id="music-status">Putar Musik</span>
-        </button>
+        <button id="music-toggle-btn" class="music-control">
+            <svg id="music-icon-play" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+            <svg id="music-icon-pause" viewBox="0 0 24 24" style="display: none;"><path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"/></svg>
+            <span id="music-status">Putar Musik</span>
+        </button>
 
-        <button id="love-letter-btn" class="love-letter-btn disabled">
-            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
-            <span>Buka Suratku</span>
-        </button>
+        <button id="love-letter-btn" class="love-letter-btn">
+            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+            <span>Buka Suratku</span>
+        </button>
 
-        <div class="main-container">
-            <div class="container">
-                
-                <div class="content-lock-wrapper">
-                    <div class="content-lock-overlay">
-                        <div class="lock-icon">🔒</div>
-                        <span>Fitur Tersedia di Versi Lengkap</span>
-                    </div>
+        <div class="modal-overlay" id="love-letter-modal">
+            <div class="modal-content">
+                <button class="modal-close-btn" id="love-letter-close-btn">&times;</button>
+                <h3 id="letter-title"></h3>
+                <p id="letter-p1"></p>
+                <p id="letter-p2"></p>
+                <p id="letter-p3"></p>
+                <p id="letter-signature" class="signature"></p>
+            </div>
+        </div>
 
-                    <div class="photo-viewer-card">
-                        <div class="relative mb-6">
-                            <div class="main-photo-display">
-                                <img id="main-photo" src="" alt="" class="main-photo-img">
-                                <div class="gradient-overlay"></div>
-                                <button id="prev-btn" class="nav-button left-0">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
-                                </button>
-                                <button id="next-btn" class="nav-button right-0">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
-                                </button>
-                            </div>
-                        </div>
-                        <div id="photo-info-overlay" class="photo-info-container-wrapper">
-                            <div class="info-box">
-                                <h3 id="photo-description"></h3>
-                                <p class="photo-date-container">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                                    <span id="photo-date"></span>
-                                </p>
-                            </div>
-                        </div>
-                        <div id="photo-indicators" class="indicator-container"></div>
-                    </div>
+        <div class="modal-overlay" id="game-modal-tod">
+            <div class="modal-content game-modal-content">
+                <button class="modal-close-btn" id="game-tod-close-btn">&times;</button>
+                <h3>Truth or Dare</h3>
+                <div id="game-question-display" class="game-question-display">
+                    Pilih Truth or Dare
+                </div>
+                <div class="game-controls">
+                    <button id="truth-btn" class="game-button truth">Truth</button>
+                    <button id="dare-btn" class="game-button dare">Dare</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="modal-overlay" id="photobox-modal">
+            <div class="modal-content photobox-modal-content">
+                <button class="modal-close-btn" id="photobox-close-btn">&times;</button>
+                <h3>Photobox Kenangan</h3>
+                <div id="photobox-main-view">
+                    <div class="photobox-camera-view">
+                        <video id="photobox-video" playsinline autoplay muted></video>
+                    </div>
+                    <p id="photobox-instructions">Posisikan wajahmu, lalu ambil 3 foto!</p>
+                    <button id="photobox-capture-btn" class="photobox-button">Jepret!</button>
+                    <div id="photobox-thumbnails" class="photobox-thumbnails"></div>
+                </div>
+                <div id="photobox-result-view" class="hidden">
+                    <h4>Hore! Ini dia hasilnya!</h4>
+                    <canvas id="photobox-final-canvas"></canvas>
+                    <div class="photobox-button-container">
+                        <a id="photobox-download-btn" class="photobox-button download" download="photobox.jpg">Download</a>
+                        <button id="photobox-retake-btn" class="photobox-button retake">Ulangi</button>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    <div class="gallery-card">
-                        <h2>Gallery Photos</h2>
-                        <div id="thumbnail-gallery" class="thumbnail-grid"></div>
-                    </div>
-                </div>
+        <div class="modal-overlay" id="puzzle-modal">
+            <div class="modal-content puzzle-modal-content">
+                <button class="modal-close-btn" id="puzzle-close-btn">&times;</button>
+                <h3>Puzzle Kenangan</h3>
+                <p>Temukan 5 pasang foto yang cocok!</p>
+                <div class="puzzle-board-container">
+                    <div id="puzzle-board" class="puzzle-board"></div>
+                </div>
+                <div class="puzzle-status-container">
+                    <p id="puzzle-status" class="puzzle-status"></p>
+                </div>
+            </div>
+        </div>
 
+        <div class="modal-overlay" id="time-capsule-modal">
+            <div class="modal-content time-capsule-content">
+                <button class="modal-close-btn" id="time-capsule-close-btn">&times;</button>
+                <h3 id="capsule-title">Kapsul Waktu</h3>
+                <div id="capsule-input-view">
+                    <p>Tulis pesan rahasia dan tentukan tanggal untuk membukanya.</p>
+                    <textarea id="capsule-message-input" placeholder="Tulis pesanmu di sini..."></textarea>
+                    <label for="capsule-date-input">Tanggal Dibuka:</label>
+                    <input type="datetime-local" id="capsule-date-input">
+                    <button id="capsule-lock-btn" class="photobox-button">Kunci & Simpan Pesan</button>
+                </div>
+                <div id="capsule-display-view" class="hidden">
+                    <div id="capsule-countdown-view">
+                        <p id="capsule-countdown-title">Pesan ini akan terbuka dalam...</p>
+                        <div class="countdown-timer">
+                            <div><span id="countdown-days">0</span><p>Hari</p></div>
+                            <div><span id="countdown-hours">0</span><p>Jam</p></div>
+                            <div><span id="countdown-minutes">0</span><p>Menit</p></div>
+                            <div><span id="countdown-seconds">0</span><p>Detik</p></div>
+                        </div>
+                    </div>
+                    <div id="capsule-message-view" class="hidden">
+                        <h4>Selamat! Waktunya telah tiba...</h4>
+                        <p id="capsule-message" class="capsule-message-text"></p>
+                    </div>
+                    <button id="capsule-reset-btn" class="photobox-button retake">Reset Kapsul Waktu</button>
+                </div>
+            </div>
+        </div>
+        <div class="main-container">
+            <div class="container">
+                
+                <div class="photo-viewer-card">
+                    <div class="relative mb-6">
+                        <div class="main-photo-display">
+                            <img id="main-photo" src="" alt="" class="main-photo-img">
+                            <div class="gradient-overlay"></div>
+                            <button id="prev-btn" class="nav-button left-0">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                            </button>
+                            <button id="next-btn" class="nav-button right-0">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                            </button>
+                        </div>
+                    </div>
+                    <div id="photo-info-overlay" class="photo-info-container-wrapper">
+                        <div class="info-box">
+                            <h3 id="photo-description"></h3>
+                            <p class="photo-date-container">
+                                <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                                <span id="photo-date"></span>
+                            </p>
+                        </div>
+                    </div>
+                    <div id="photo-indicators" class="indicator-container"></div>
+                </div>
 
-                <div class="activity-hub">
-                    <h2>Aktivitas & Permainan</h2>
-                    <div class="activity-grid">
-                        
-                        <div class="activity-card disabled">
-                            <div class="activity-icon">🎲</div>
-                            <h3>Truth or Dare</h3>
-                            <p>Uji kejujuran dan keberanian dalam permainan klasik ini!</p>
-                            <span class="locked-badge">Terkunci</span>
-                        </div>
+                <div class="gallery-card">
+                    <h2>Gallery Photos</h2>
+                    <div id="thumbnail-gallery" class="thumbnail-grid"></div>
+                </div>
 
-                        <div class="activity-card disabled">
-                            <div class="activity-icon">📸</div>
-                            <h3>Photobox</h3>
-                            <p>Abadikan momen seru dengan 3 gaya andalanmu!</p>
-                            <span class="locked-badge">Terkunci</span>
-                        </div>
-                        
-                        <div class="activity-card disabled">
-                            <div class="activity-icon">🧩</div>
-                            <h3>Puzzle Kenangan</h3>
-                            <p>Uji ingatanmu dan cocokkan 5 foto kenangan kita!</p>
-                            <span class="locked-badge">Terkunci</span>
-                        </div>
+                <div class="activity-hub">
+                    <h2>Aktivitas & Permainan</h2>
+                    <div class="activity-grid">
+                        
+                        <div class="activity-card disabled">
+                            <div class="activity-icon">🎲</div>
+                            <h3>Truth or Dare</h3>
+                            <p>Uji kejujuran dan keberanian dalam permainan klasik ini!</p>
+                            <span class="locked-badge">🔒 Terkunci</span>
+                        </div>
 
-                        <div class="activity-card disabled">
-                            <div class="activity-icon">⏳</div>
-                            <h3>Kapsul Waktu</h3>
-                            <p>Tulis pesan rahasia yang akan terbuka di waktu yang tepat.</p>
-                            <span class="locked-badge">Terkunci</span>
-                        </div>
-                    </div>
-                </div>
+                        <div class="activity-card disabled">
+                            <div class="activity-icon">📸</div>
+                            <h3>Photobox</h3>
+                            <p>Abadikan momen seru dengan 3 gaya andalanmu!</p>
+                            <span class="locked-badge">🔒 Terkunci</span>
+                        </div>
+                        
+                        <div class="activity-card disabled">
+                            <div class="activity-icon">🧩</div>
+                            <h3>Puzzle Kenangan</h3>
+                            <p>Uji ingatanmu dan cocokkan 5 foto kenangan kita!</p>
+                            <span class="locked-badge">🔒 Terkunci</span>
+                        </div>
 
-            </div>
-        </div>
-    </div>
+                        <div class="activity-card disabled">
+                            <div class="activity-icon">⏳</div>
+                            <h3>Kapsul Waktu</h3>
+                            <p>Tulis pesan rahasia yang akan terbuka di waktu yang tepat.</p>
+                            <span class="locked-badge">🔒 Terkunci</span>
+                        </div>
+                    </div>
+                </div>
 
-    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
-    <script src="config.js"></script>
-    <script src="script.js"></script>
+            </div>
+        </div>
+    </div>
 
-    <div class="site-footer">another.habib</div>
+    <script src="https://cdn.jsdelivr.net/npm/papaparse@5.3.0/papaparse.min.js"></script>
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+
+    <div class="site-footer">another.habib</div>
 
 </body>
 </html>
